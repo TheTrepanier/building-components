@@ -1,0 +1,37 @@
+{
+  "name": "building-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'view/*'\" \"npm run view\"",
+    "view": "cd view && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd view && npm install",
+    "build": "cd view && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheTrepanier/building-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheTrepanier/building-components/issues"
+  },
+  "homepage": "https://github.com/TheTrepanier/building-components#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
+  }
+}
